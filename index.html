@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tanmay Arora's personal website - A cyber physical systems engineering student who loves solving interesting problems">
+    <title>Tanmay Arora</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16'><text y='14' x='0' font-size='14'>🌊</text></svg>">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+        :root {
+            /* Light theme */
+            --bg-primary: #f8f9fc;
+            --text-primary: #2d3748;
+            --link-color: #3b82f6;
+            --accent-subtle: #e2e8f0;
+            --text-muted: #64748b;
+            --nav-bg: rgba(248, 249, 252, 0.95);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        .skip-to-main {
+            position: absolute;
+            left: -9999px;
+            z-index: 999;
+            padding: 1em;
+            background-color: var(--bg-primary);
+            color: var(--link-color);
+            opacity: 0;
+        }
+
+        .skip-to-main:focus {
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 1;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background-color: var(--bg-primary);
+            max-width: 42rem;
+            margin: 0 auto;
+            padding: 1rem;
+            transition: color 0.3s ease, background-color 0.3s ease;
+        }
+
+        h1, h2, h3 {
+            font-weight: 600;
+            margin: 2rem 0 1rem;
+            transition: color 0.3s ease;
+        }
+
+        h2, h3 {
+            position: relative;
+        }
+
+        .anchor-link {
+            margin-left: 8px;
+            text-decoration: none;
+            font-size: 0.8em;
+            color: var(--text-muted);
+            visibility: hidden;
+            transition: color 0.2s ease;
+        }
+
+        section h2:hover .anchor-link,
+        section h3:hover .anchor-link {
+            visibility: visible;
+        }
+
+        .anchor-link:hover {
+            color: var(--link-color);
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        .last-updated {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        nav {
+            position: sticky;
+            top: 0;
+            background: var(--nav-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 1rem;
+            border-bottom: 1px solid var(--accent-subtle);
+            margin-bottom: 2rem;
+            z-index: 1000;
+            transition: background-color 0.3s ease;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        a {
+            color: var(--link-color);
+            text-decoration: none;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.2s ease, color 0.2s ease;
+        }
+
+        a:hover {
+            border-bottom-color: var(--link-color);
+        }
+
+        a[href^="http"]::after {
+            content: "↗";
+            font-size: 0.8em;
+            margin-left: 0.2em;
+            display: inline-block;
+        }
+
+        nav a[href^="http"]::after {
+            content: none;
+        }
+
+        nav a {
+            color: var(--text-muted);
+        }
+
+        nav a:hover {
+            color: var(--link-color);
+        }
+
+        ul, ol {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        section {
+            margin: 3rem 0;
+            scroll-margin-top: 6rem;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 0.5s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        footer {
+            margin-top: 4rem;
+            padding: 2rem 0;
+            border-top: 1px solid var(--accent-subtle);
+            text-align: center;
+        }
+
+        footer ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            padding: 0;
+            margin-bottom: 2rem;
+        }
+
+        footer p {
+            color: var(--text-muted);
+        }
+
+        .loading {
+            cursor: wait;
+            opacity: 0.7;
+        }
+
+        @media print {
+            nav, 
+            footer,
+            .anchor-link {
+                display: none;
+            }
+
+            body {
+                max-width: none;
+                padding: 2cm;
+                color: black;
+                background: white;
+            }
+
+            a {
+                color: black;
+                text-decoration: underline;
+            }
+
+            @page {
+                margin: 2cm;
+            }
+        }
+
+        @media (max-width: 600px) {
+            nav {
+                padding: 1rem 0;
+            }
+            
+            nav ul {
+                gap: 1rem;
+            }
+
+            footer ul {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="#main" class="skip-to-main">Skip to main content</a>
+
+    <nav>
+        <ul>
+            <li><a href="#home">/</a></li>
+            <li><a href="#work">work</a></li>
+            <li><a href="#play">play</a></li>
+            <li><a href="#learn">learn</a></li>
+            <li><a href="#make">make</a></li>
+            <li><a href="#library">library</a></li>
+            <li><a href="#now">now</a></li>
+        </ul>
+    </nav>
+
+    <main id="main">
+        <section id="home">
+            <h1>Hi, I'm Tanmay Arora</h1>
+            <p>Hey there! Thanks for dropping by to my corner of the internet. Everyone calls me tnmy, and I'm one of those people who can't stop thinking about interesting problems until I've solved them.</p>
+        </section>
+
+        <section id="about">
+            <h2>🥭 About Me <a class="anchor-link" href="#about">#</a></h2>
+            <p>I am an undergraduate student at <a href="https://www.manipal.edu/mit.html">MIT Manipal</a> studying <a href="https://www.google.com/search?q=cyber+physical+systems+engineering">Cyber Physical Systems Engineering</a>. Sounds fancy, right? It's basically where software meets hardware that meets the real world.</p>
+            <p>But here's the thing - I'm not just a tech person. I love diving into deep conversations about philosophy, getting lost in economic theories, and don't even get me started on geopolitics! There's something fascinating about understanding how the world actually works.</p>
+        </section>
+
+        <section id="work">
+            <h2>🍊 Work <a class="anchor-link" href="#work">#</a></h2>
+            <p>These days, I'm leading the community team at <a href="https://www.linkedin.com/company/open-horizon-robotics/?originalSubdomain=in">Open Horizon</a> Manipal Chapter. It's pretty exciting stuff! I'm also working on this edtech venture called Open Beacon - it's been quite a journey so far.</p>
+        </section>
+
+        <section id="play">
+            <h2>🍋 Play <a class="anchor-link" href="#play">#</a></h2>
+            <p>When I'm not working, you'll find me doing all sorts of things. I'm part of <a href="https://www.instagram.com/ldq_manipal/">λΔQ</a>, the quiz club at college - there's something addictive about the thrill of pouncing and getting that perfect answer!</p>
+            
+            <p>Running is my meditation. Seriously, there's nothing quite like a good run to clear your head. I've done a half marathon, but the 10k is my sweet spot - just long enough to get in the zone, not long enough to question all my life choices.</p>
+            
+            <p>Oh, and I love cooking! Especially Indian food. There's something magical about turning simple ingredients into something amazing. I'm also pretty nerdy about nutrition and wellness - always experimenting with crazy recipes.</p>
+            
+            <p>My absolute favorite thing though? Traveling. I try to explore somewhere new every month. It's not just about seeing places - it's about discovering different ways of living, thinking, and being. India's diversity never ceases to amaze me, and there's so much more to explore beyond!</p>
+        </section>
+
+        <section id="learn">
+            <h2>🥝 Learn <a class="anchor-link" href="#learn">#</a></h2>
+            <p>Lately, I've been geeking out over cybersecurity. It's fascinating how complex and ever-evolving this field is.</p>
+            <p>I'm also taking YC's Startup School course (CS 183B)</p>
+        </section>
+
+        <section id="make">
+            <h2>🍋‍🟩 Make <a class="anchor-link" href="#make">#</a></h2>
+            <p>If you're curious about what I get up to, check out my Instagram page <a href="https://instagram.com/tanmaydoesstuff">tanmaydoesstuff</a> - it's where I share bits and pieces of my experiments and adventures.</p>
+            <p>I also write at my blog <a href="https://tanmay.bearblog.dev">Aiyna</a>. It's where I put down my thoughts about culture, life, and pretty much anything that gets me thinking. Give it a read if you're into that sort of thing!</p>
+        </section>
+
+        <section id="library">
+            <h2>🍉 Library <a class="anchor-link" href="#library">#</a></h2>
+            <h3 id="recent-reads">Reads <a class="anchor-link" href="#recent-reads">#</a></h3>
+             My reading habit has been hibernating lately. But I've got stuff in my reading list waiting, so watch this space!
+            <h3 id="music">Music <a class="anchor-link" href="#music">#</a></h3>
+            <p>Indie pop is my jam, but I'll listen to pretty much anything that catches my ear. Check out my <a href="https://open.spotify.com/user/31znu3vpm2h2xye6i236msli34ha">Spotify</a> and you'll find everything from obscure European indie tracks to the most mainstream pop hits.</p>
+        </section>
+
+        <section id="now">
+            <h2>🍓 Now <a class="anchor-link" href="#now">#</a></h2>
+            <p class="last-updated">Last updated: 31 December '24</p>
+            <ul>
+                <li>Growing the OHR community offline- trying to bring like-minded people together in Manipal.</li>
+                <li>Deep diving into cybersecurity, especially the hardware side of things. Forensics is particularly fascinating!</li>
+                <li>Finally bringing Open Beacon to life - it's been in my head for way too long.</li>
+                <li>Dusting off my blog - got some thoughts that have been marinating in my drafts folder.</li>
+                <li>Training for the 10k at the upcoming <a href="https://manipalmarathon.com">Manipal Marathon</a> '25. Wish me luck!</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <ul>
+            <li><a href="https://github.com/tnmyhere">GitHub</a></li>
+            <li><a href="https://twitter.com/tnmyhere">X</a></li>
+            <li><a href="https://instagram.com/tnmyhere">Instagram</a></li>
+            <li><a href="https://linkedin.com/in/tanmayarora0">LinkedIn</a></li>
+            <li><a href="mailto:tnmyhere@pm.me">Email</a></li>
+        </ul>
+        <p>📮 You know what's become rare these days? Genuine conversations through email. If you've got thoughts to share or just want to say hi, drop me a line at <a href="mailto:tnmyhere@pm.me">tnmyhere@pm.me</a>. Getting an email makes my day :)</p>
+    </footer>
+</body>
+</html>
